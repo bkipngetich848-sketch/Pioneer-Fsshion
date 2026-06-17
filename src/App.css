@@ -14,8 +14,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #040527;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+ .product-img{
+  height: 200px;
+  width: 80%;
+  object-fit: contain;
+ }
+
+ .prodName{
+  color: rgb(0, 26, 255);
+ }
+
+ .prodDesc{
+  color: rgb(7, 63, 192);
+ }
+
+ .prodCost{
+  color: rgb(249, 8, 8);
+  font-weight: 700;
+ }
+
+ .product-img-pay{
+  width: 100%;
+  height: 550px;
+ }
+
+ .myh2{
+  font-weight: 800;
+  font-size: 40px;
+ }
+
+ .myh1{
+  font-weight: 800;
+  font-size: 60px;
+ }

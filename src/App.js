@@ -18,8 +18,9 @@ function App() {
   return (
    <Router>
      <div className="App">
-      <header className="App-header">        
-        <h1>Sokogarden Buy & Sell Online</h1>       
+      <header className="App-header bg-secondary">        
+        <h1>Shopping in Nairobi: My Top Picks for Kenyan Fashion Designers</h1> 
+        <div className='bg-warning  rounded'>Up To 70% Off</div> 
       </header>
 
      {/* the navigation component */}

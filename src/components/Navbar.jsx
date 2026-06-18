@@ -28,7 +28,7 @@ const handleLogout=()=>{
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark px-3'>
       <NavLink to="/" className="navbar-brand text-light fw-bold">
-        SOKOGARDEN
+        Pioneer Fashion
       </NavLink>
 
 
@@ -46,13 +46,26 @@ const handleLogout=()=>{
         <ul className='navbar-nav ms-auto'>
           <li className='nav-item'>
             <NavLink to="/" className="nav-link">Home</NavLink>
-          </li>
+          </li> <br /><br />
+
+          <li className='nav-item'>
+            <NavLink to="/addproduct" className="nav-link">Add product</NavLink>
+          </li> <br /><br />
+
+          <li className='nav-item'>
+            <NavLink to="/addproduct" className="nav-link">Jewellery</NavLink>
+          </li> <br /><br />
+
+          <li className='nav-item'>
+            <NavLink to="/addproduct" className="nav-link">Shoes</NavLink>
+          </li> <br /><br />
+          
           <li className='nav-item'>
             <NavLink to="/addproduct" className="nav-link">Add product</NavLink>
           </li>
+          
 
-
-
+          
           {/* conditional rendering of components */}
           {user ? (
             <>

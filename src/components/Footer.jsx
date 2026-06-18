@@ -1,56 +1,116 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
-    return (
-        <footer className='bg-primary text-light mt-5'>
-            <div className='container py-4'>
-                <div className='row'>
+  return (
+    <footer className="bg-dark text-light mt-5">
+      <div className="container py-5">
+        <div className="row">
 
+          {/* About */}
+          <div className="col-md-4 mb-4">
+            <h4 className="fw-bold text-warning">
+              Pioneer Fashion
+            </h4>
 
-                    {/* brand /about website */}
-                    <div className='col-md-4 mb-3'>
-                        <h5 className='fw-bold bg-warning '>Sokogarden App</h5>
-                        <p className='small'>
-                            Bulding Modern Web Application With User Experience
-                        </p>
-                    </div>
+            <p className="small">
+              Pioneer Fashion is your trusted destination for
+              trendy clothing, stylish accessories, and quality
+              fashion products. We bring you the latest styles
+              at affordable prices to keep you looking your best.We are also offering free shipping to everywhere in Kenya and in East Africa at large
+            </p>
 
-
-
-                    {/* links  */}
-                    <div className='col-md-4 mb-4'>
-                        <h5 className='fw-bold bg-warning'> 
-                            Quick links
-                        </h5>
-                        <ul className='list-unstyled'>
-                            <li><a href="/" className='text-light text-decoration-none'>Home</a></li>
-                            <li><a href="/about"  className='text-light text-decoration-none'>about</a></li>
-                            <li><a href="/addproduct"  className='text-light text-decoration-none'>addproduct</a></li>
-                            <li><a href="/contact"  className='text-light text-decoration-none'>contact</a></li>
-
-                        </ul>
-                    </div>
-
-
-
-                    {/* website contact infomation */}
-                    <div className='col-md-4 mb-3  text-shadow: 0 0 10px rgb(255, 214, 12);'>
-                        <h5 className='bg-warning'> contacts</h5>
-                        <p>Email:Support@Sokogarden.com</p>
-                        <p>phone:+254 784 457</p>
-                        <p>location:Karen</p>
-                    </div>
-
-                </div>
-                
+            <div className="d-flex gap-3 fs-4">
+              <i className="bi bi-facebook"></i>
+              <i className="bi bi-instagram"></i>
+              <i className="bi bi-twitter-x"></i>
+              <i className="bi bi-whatsapp"></i>
             </div>
+          </div>
 
-            {/* this the buttom bar */}
-            <div className='bg-secondary text-center py-2'>
-                <p> &copy; {new Date().getFullYear()} tikwet.All Rights Reserved</p>
+          {/* Quick Links */}
+          <div className="col-md-4 mb-4">
+            <h4 className="fw-bold text-warning">
+              Quick Links
+            </h4>
+
+            <ul className="list-unstyled">
+              <li className="mb-2">
+                <a
+                  href="/"
+                  className="text-light text-decoration-none"
+                >
+                  Home
+                </a>
+              </li>
+
+              <li className="mb-2">
+                <a
+                  href="/about"
+                  className="text-light text-decoration-none"
+                >
+                  About
+                </a>
+              </li>
+
+              <li className="mb-2">
+                <a
+                  href="/addproduct"
+                  className="text-light text-decoration-none"
+                >
+                  Add Product
+                </a>
+              </li>
+
+              <li className="mb-2">
+                <a
+                  href="/contact"
+                  className="text-light text-decoration-none"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact & Newsletter */}
+          <div className="col-md-4 mb-4">
+            <h4 className="fw-bold text-warning">
+              Contact Us
+            </h4>
+
+            <p> support@pioneerfashion.com</p>
+            <p> +254 784 457 000</p>
+            <p> Karen, Nairobi, Kenya</p>
+
+            <div className="mt-3">
+              <h6>Subscribe for Updates</h6>
+
+              <div className="input-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Enter your email"
+                />
+
+                <button className="btn btn-warning">
+                  Subscribe
+                </button>
+              </div>
             </div>
-        </footer>
-    )
-}
+          </div>
 
-export default Footer
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="bg-secondary text-center py-3">
+        <p className="mb-0">
+          &copy; {new Date().getFullYear()} Pioneer Fashion.
+          All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

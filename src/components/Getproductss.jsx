@@ -47,7 +47,7 @@ console.log(products)
   return (
     <div className='row'>
 
-      <h3 className='text-center'>Available Products</h3>
+      <h3 className='text-center'>VIVO TOP CATEGORIES</h3>
 
       <h3 className='text-info'>{loading}</h3>
       <h3 className="text-danger">{error}</h3>

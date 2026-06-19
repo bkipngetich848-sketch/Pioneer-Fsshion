@@ -11,6 +11,12 @@ import Makepayment from './components/Makepayment';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Carousel from './components/Carousel';
+import About from './components/About';
+import Home from './components/Home';
+import Shoes from './components/Shoes';
+import Women from './components/Women';
+import Jewellery from './components/Jewellery';
+
 
 
 
@@ -19,8 +25,7 @@ function App() {
    <Router>
      <div className="App">
       <header className="App-header bg-secondary">        
-        <h1>Shopping in Nairobi: My Top Picks for Kenyan Fashion Designers</h1> 
-        <div className='bg-warning  rounded'>Up To 70% Off</div> 
+        <h1 className='kk'>Shopping in Nairobi: My Top Picks for Kenyan Fashion Designers</h1>  
       </header>
 
      {/* the navigation component */}
@@ -34,8 +39,14 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/addproduct' element={<Addproduct/>}/>
+        <Route path='/home' element={<Home/>}/>
         <Route path='/makepayment' element={<Makepayment/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/shoes' element={<Shoes/>}/>
+        <Route path='/jewellery' element={<Jewellery/>}/>
+        <Route path='/women' element={<Women/>}/>
         <Route path='/*'element={<Notfound/>}/>
+        
       </Routes>
 
       {/* footer component */}

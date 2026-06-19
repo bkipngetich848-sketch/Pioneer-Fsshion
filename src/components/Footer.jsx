@@ -11,6 +11,7 @@ const Footer = () => {
             <h4 className="fw-bold text-warning">
               Pioneer Fashion
             </h4>
+           
 
             <p className="small">
               Pioneer Fashion is your trusted destination for
@@ -72,32 +73,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact & Newsletter */}
-          <div className="col-md-4 mb-4">
-            <h4 className="fw-bold text-warning">
-              Contact Us
-            </h4>
-
-            <p> support@pioneerfashion.com</p>
-            <p> +254 784 457 000</p>
-            <p> Karen, Nairobi, Kenya</p>
-
-            <div className="mt-3">
-              <h6>Subscribe for Updates</h6>
-
-              <div className="input-group">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter your email"
-                />
-
-                <button className="btn btn-warning">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
+    
 
         </div>
       </div>

@@ -3,75 +3,98 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Getproductss = () => {
-
-  // step2:hooks
   const [loading, setLoading] = useState("")
   const [products, setProducts] = useState([])
   const [error, setError] = useState("")
 
-  const navigate= useNavigate()
-  
+  const navigate = useNavigate()
 
-  // below is the image uRL
-  const img_url="https://tikwet.alwaysdata.net/static/images/"
+  const img_url = "https://tikwet.alwaysdata.net/static/images/"
 
-  //  step3: function to fetch
   const fetchproduct = async () => {
-    // step4:
-    setLoading("Please wait a while....")
+    setLoading("Loading products...")
 
-    step6:
     try {
-      const responce = await axios.get("http://tikwet.alwaysdata.net/api/getproducts")
+      const response = await axios.get(
+        "https://tikwet.alwaysdata.net/api/getproducts"
+      )
 
-      //  step7: 
-      setProducts(responce.data.products)
-
-      // step8:
+      setProducts(response.data.products)
       setLoading("")
-    }
-    catch (error) {
+    } catch (error) {
       setLoading("")
       setError(error.message)
     }
   }
 
-console.log(products)
-
-  // Step5:
-  useEffect(() => { fetchproduct() }, [])
-
-
-
+  useEffect(() => {
+    fetchproduct()
+  }, [])
 
   return (
-    <div className='row'>
+    <div className="container mt-4">
+      <h2 className="text-center mb-4 fw-bold">
+        TOP CATEGORIES
+      </h2>
 
-      <h3 className='text-center'>VIVO TOP CATEGORIES</h3>
+      {loading && (
+        <h4 className="text-center text-info">
+          {loading}
+        </h4>
+      )}
 
-      <h3 className='text-info'>{loading}</h3>
-      <h3 className="text-danger">{error}</h3>
+      {error && (
+        <h4 className="text-center text-danger">
+          {error}
+        </h4>
+      )}
 
-     {/* map the products */}
-     {products.map((product)=>(
-       <div className="col-md-3 justify-content-center mb-4">
-        <div className="card-shadow">
-          <img src={img_url + product.product_photo} alt="" className='product-img' />
+      <div className="row">
+        {products.map((product, index) => (
+          <div
+            className="col-md-3 mb-4"
+            key={product.product_id || index}
+          >
+            <div className="card shadow h-100 border-0">
 
-          <h4 className='prodName' >{product.product_name}</h4>
+              <img
+                src={img_url + product.product_photo}
+                alt={product.product_name}
+                className="card-img-top"
+                style={{
+                  height: "280px",
+                  objectFit: "cover"
+                }}
+              />
 
-          <p className='prodDesc'>{product.product_description.slice(0,50)}...                                                                                                                                                                                                                                                                                                                                                                                                                    </p>
+              <div className="card-body text-center">
+                <h5>{product.product_name}</h5>
 
-          <h2 className='prodCost'>Kes {product.product_cost}</h2>
+                <p>
+                  {product.product_description.slice(0, 50)}
+                  ...
+                </p>
 
-          <button className='btn btn-outline-info'
-          onClick={()=>navigate("/makepayment",{state: {product}})}
-          
-          >Purchase Now</button>
-        </div>
+                <h4 className="text-success">
+                  KES {product.product_cost}
+                </h4>
 
+                <button
+                  className="btn btn-dark w-100"
+                  onClick={() =>
+                    navigate("/makepayment", {
+                      state: { product }
+                    })
+                  }
+                >
+                  Purchase Now
+                </button>
+              </div>
+
+            </div>
+          </div>
+        ))}
       </div>
-     ))}
     </div>
   )
 }

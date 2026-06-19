@@ -69,3 +69,15 @@
   font-weight: 800;
   font-size: 60px;
  }
+
+ .tt{
+  text-shadow: 0 0 10px rgba(255, 2, 2, 0.7);
+ }
+
+ .yy{
+  text-shadow: 0 0 10px rgb(0, 21, 248);
+ }
+
+ .kk{
+  text-shadow: 0 0 10px rgb(0, 248, 149);
+ }

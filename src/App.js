@@ -32,8 +32,7 @@ function App() {
       <Navbar/>
 
       {/* carousel components] */}
-      <Carousel/>
-
+     
       <Routes>
         <Route path='/' element={<Getproductss/>}/>
         <Route path='/signup' element={<Signup/>}/>
@@ -46,6 +45,7 @@ function App() {
         <Route path='/jewellery' element={<Jewellery/>}/>
         <Route path='/women' element={<Women/>}/>
         <Route path='/*'element={<Notfound/>}/>
+        <Route path='/' element={<Home/>}/>
         
       </Routes>
 

@@ -2,10 +2,12 @@ import React from 'react'
 
 const Women = () => {
   return (
-    <div>
-      <h2>Women's Fashion</h2>
+  
+    <div className="container mt-5">
+      <h1>Women's Fashion</h1>
     </div>
   )
+
 }
 
 export default Women

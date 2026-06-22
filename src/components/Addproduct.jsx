@@ -60,7 +60,7 @@ const Addproducts = () => {
   return (
     <div
       className="container py-5"
-      style={{ backgroundColor: "#bfc6be",}}
+      style={{ backgroundColor: "#010101",}}
     >
       <div className="row justify-content-center">
         <div className="col-md-7">

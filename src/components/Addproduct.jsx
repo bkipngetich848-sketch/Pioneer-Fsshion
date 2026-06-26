@@ -149,8 +149,8 @@ const Addproducts = () => {
                   className="form-select"
                   required
                 >
-                  <option value="">
-                    Select Product Category
+                  <option value="0">
+                    men
                   </option>
                   <option value="women">
                     Women Clothing

@@ -1,13 +1,8 @@
-import React from 'react'
+import React from "react";
+import Getproductss from "./Getproductss";
 
 const Women = () => {
-  return (
-  
-    <div className="container mt-5">
-      <h1>Women's Fashion</h1>
-    </div>
-  )
+  return <Getproductss category="women" />;
+};
 
-}
-
-export default Women
+export default Women;

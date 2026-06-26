@@ -10,7 +10,7 @@ const Home = () => {
       <div className="row">
 
         <button
-          className="btn btn-dark btn-lg"
+          className="btn btn-warning btn-lg"
           onClick={() => navigate("/signup")}
         >
           Explore Our Services

@@ -81,8 +81,8 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="bg-secondary text-center py-3">
         <p className="mb-0">
-          &copy; {new Date().getFullYear()} Pioneer Fashion.
-          All Rights Reserved.
+          &copy; {new Date().getFullYear()} 
+           All Rights Reserved.
         </p>
       </div>
     </footer>

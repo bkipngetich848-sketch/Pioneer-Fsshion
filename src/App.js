@@ -6,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ChatButton from "./components/ChatButton";
 
 import Home from "./components/Home";
 import Services from "./components/Services";
@@ -24,7 +25,6 @@ import Notfound from "./components/Notfound";
 function App() {
   return (
     <Router>
-
       <div className="App">
 
         <header className="App-header bg-secondary">
@@ -36,43 +36,27 @@ function App() {
         <Navbar />
 
         <Routes>
-
-          {/* Landing Page */}
           <Route path="/" element={<Home />} />
-
-          {/* Services */}
           <Route path="/services" element={<Services />} />
-
-          {/* Products */}
           <Route path="/products" element={<Getproductss />} />
-
           <Route path="/women" element={<Women />} />
-
           <Route path="/shoes" element={<Shoes />} />
-
           <Route path="/jewellery" element={<Jewellery />} />
-
-          {/* Other Pages */}
           <Route path="/signup" element={<Signup />} />
-
           <Route path="/signin" element={<Signin />} />
-
           <Route path="/addproduct" element={<Addproduct />} />
-
           <Route path="/makepayment" element={<Makepayment />} />
-
           <Route path="/about" element={<About />} />
-
           <Route path="/contact" element={<Contact />} />
-
           <Route path="*" element={<Notfound />} />
-
         </Routes>
+
+        {/* Floating Chat Button */}
+        <ChatButton />
 
         <Footer />
 
       </div>
-
     </Router>
   );
 }

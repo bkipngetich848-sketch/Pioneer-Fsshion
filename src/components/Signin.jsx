@@ -1,121 +1,140 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Signin = () => {
+  // Hooks
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // declare the hooks
-  const[email, setEmail]=useState("")
-  const[password,setPassword]=useState("")
+  // Show/Hide Password
+  const [showPassword, setShowPassword] = useState(false);
 
-  // step3 declare three hooks
-  const[loading,setLoading]=useState("")
-  const[success,setSuccess]=useState("")
-  const[Error,setError]=useState("")
+  // Status Hooks
+  const [loading, setLoading] = useState("");
+  const [success, setSuccess] = useState("");
+  const [Error, setError] = useState("");
 
+  const navigate = useNavigate();
 
- 
+  // Submit Function
+  const handlesubmit = async (e) => {
+    e.preventDefault();
 
-  // step 13: create a used navigate hook tha will enable you redirect users to a npage page after 
-  // successful login in
-  const navigate= useNavigate()
+    setLoading("Please wait a while...");
+    setSuccess("");
+    setError("");
 
+    try {
+      const formData = new FormData();
 
+      formData.append("email", email);
+      formData.append("password", password);
 
-  // create a function to handle a submit action
-  const handlesubmit=async(e)=>{
+      const response = await axios.post(
+        "https://tikwet.alwaysdata.net/api/signin",
+        formData
+      );
 
-    // prevent default
-   e.preventDefault()
+      setLoading("");
 
-  //  update loading hook with a message
-  setLoading("Please wait a while...")
-   
-  //step7 create a try catch block
-  try{
-  //  create a form data object
-  const formData=new FormData()
+      if (response.data.success === "welcome") {
+        localStorage.setItem(
+          "user",
+          JSON.stringify(response.data.user)
+        );
 
+        navigate("/");
+      } else {
+        setError("Login unsuccessful");
+      }
+    } catch (err) {
+      setLoading("");
+      setError("Incorrect details. Please try again.");
+    }
+  };
 
-  // step9; append detail from the data
-  formData.append("email",email)
-  formData.append("password",password)
-
-  // step10: interact with axios module
-  const response=await axios.post("https://tikwet.alwaysdata.net/api/signin",formData)
-
-  
-  // step11: set back the loading hook to empty
-  setLoading("")
-
-  // step12: by use of an if statement check whether they is a success ressage given back as a response from the hosted api, if they is rit means the user as enter corerect details and he/she redirected to another page if they no message given back, responce give a responce to the user meaning the detail he enter are incorrect.
-  if(response.data.success ==="welcome"){
-    // setSuccess("Login Success")
-    // below we redirect our user to home page 
-
-    localStorage.setItem("user", JSON.stringify(response.data.user));
-    // console.log(response.data);
-    navigate("/")
-
-
-  }
-  else{
-    setError("Login unsuccessful")
-  }
-  }
-   catch(error){
-    // step13: set loading back to default and update the error hook just incese they is an error
-    setLoading("")
-    setError("Incorrect please try again....")
-   }
-
-  }
   return (
-     <div className='row justify-content-center mt-4' >
-      
-      <div className='col-md-6 p-4 card shadow '>
-        
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
 
-      
-     <form onSubmit={handlesubmit}>
-      <h1> Sign In </h1> <br /> <br />
+          <div className="card shadow p-4">
 
-        <h4 className="text-info">{loading}</h4>
-        <h4 className='text-success'>{success}</h4>
-        <h4 className='text-danger'>{Error}</h4>
+            <h2 className="text-center mb-4">
+              Sign In
+            </h2>
 
-      {/* step 2 testinthe hooks */}
+            <h5 className="text-info">{loading}</h5>
+            <h5 className="text-success">{success}</h5>
+            <h5 className="text-danger">{Error}</h5>
 
-     <input type="email"
-     value={email}
-     onChange={(e)=> setEmail(e.target.value)}
-     placeholder='enter your email'
-     className='form-control'/> 
+            <form onSubmit={handlesubmit}>
 
-     {/* {email} */}
+              {/* Email */}
+              <div className="mb-3">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
 
-      <br /> <br />
+              {/* Password */}
+              <div className="mb-4 position-relative">
 
-     <input type="password"
-     value={password}
-     onChange={(e)=> setPassword(e.target.value)}
-     placeholder='Enter your password'
-     className='form-control'/>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="form-control pe-5"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
 
-     {/* {password} */}
-     <br /><br />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    right: "15px",
+                    transform: "translateY(-50%)",
+                    cursor: "pointer",
+                    color: "#6c757d",
+                    fontSize: "20px",
+                  }}
+                >
+                  <i
+                    className={
+                      showPassword
+                        ? "bi bi-eye-slash-fill"
+                        : "bi bi-eye-fill"
+                    }
+                  ></i>
+                </span>
 
-     <input type="Submit" 
-        value="Log In" 
-        className='btn btn-outline-primary' />
-     </form>
+              </div>
 
+              {/* Login Button */}
+              <button
+                type="submit"
+                className="btn btn-primary w-100"
+              >
+                Log In
+              </button>
 
+            </form>
 
+          </div>
 
+        </div>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Signin
+export default Signin;

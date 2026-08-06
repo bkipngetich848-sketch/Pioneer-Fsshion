@@ -14,7 +14,7 @@ const Home = () => {
           onClick={() => navigate("/signup")}
         >
           Explore Our Services
-        </button>
+        </button>😴
         <div className="col-md-4">
          
         </div>
